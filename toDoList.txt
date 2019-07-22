@@ -8,12 +8,12 @@ heroes url=" " v1
 
 convention de nommage: snake case/var en francais!
 
+v1 affichage des patients add/edit/delete
+v2 page contact/login/ et rajout de donées DB 
+v3export des donnés/ print/ rajput page et requête medecins et medicaments
+
 
 <-----------------BACK--------------------->
-
-v1
-v2
-v3
 
 !!! Réponse API 3choses retournée  par l API au get ou au post  ERROR SUCCESS & DATA....
 
@@ -24,21 +24,19 @@ v3
 
 !!!! response.data.data...
 
-data {
+
+API
+
+DATA (patients){
     id_patient
-    prenom
-    nom
-    adresse
+        nom_patient
+        prenom_patient
+        adresse_patient
+        tel_patient
     
 }
 
-
-router links: patient v1 
-router links: medecin V2 
-router links: medicament v3
-
-
-
+ v2 et rajout de donées DB 
 
 <-----------------FRONT--------------------->
 
@@ -50,6 +48,12 @@ router links: medicament v3
 //edit
 //delete
 
+<--html-->
+router links: patient v1 
+router links: medecin V2 
+router links: medicament v3
+integration de base html du wareframe (version mobile) grille bootstraap
+verification code w3c
 
 
 <--js-->
@@ -63,8 +67,12 @@ front ok
 
 !!! demander retour liste apres ex 1500 sec
 
-
 versions simplifiée dans un premier temps V1.
+
+menu ham 
+
+<--css-->
+integration design final
 
 
 --------------------------------------------------------------------------------------------
@@ -83,5 +91,13 @@ sur la page detail nous recuperons le get et ou post de la page list on peut y a
 pas besoin de page modifier une fonction suffit!
 
 page modifier nous renvoyons un post avec id / nom /prenom ...
+
+DELAIS:
+
+LUNDI communication et pseudocode ok reception api ok
+MARDI v1
+MERCREDI
+JEUDI
+VENDREDI
 
 
