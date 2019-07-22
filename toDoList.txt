@@ -1,0 +1,87 @@
+etapes a suivre erp medical:
+
+ajouter membres git ok 
+
+producer (db) url=" " v2
+
+heroes url=" " v1
+
+convention de nommage: snake case/var en francais!
+
+
+<-----------------BACK--------------------->
+
+v1
+v2
+v3
+
+!!! Réponse API 3choses retournée  par l API au get ou au post  ERROR SUCCESS & DATA....
+
++action?  list/add?/detail/edit/delete +
+
+!!! edit & detail les backs ont besoins de recevoir l id du front!
++data (valeurs retournées?)
+
+!!!! response.data.data...
+
+data {
+    id_patient
+    prenom
+    nom
+    adresse
+    
+}
+
+
+router links: patient v1 
+router links: medecin V2 
+router links: medicament v3
+
+
+
+
+<-----------------FRONT--------------------->
+
+<--pages-->
+//page list
+//page detail
+<--actions-->
+//add 
+//edit
+//delete
+
+
+
+<--js-->
+//on declare un objet{}  --js--
+//on ajoute v-model --js--
+//if name!= ref ... verifier l element bien present --js--
+//item{} utiliser objet --js--
+
+!!!!  de quoi ai-je besoin comme variable, fonction ,methode.....
+front ok
+
+!!! demander retour liste apres ex 1500 sec
+
+
+versions simplifiée dans un premier temps V1.
+
+
+--------------------------------------------------------------------------------------------
+
+comportement de l'erp:
+
+page list : premiere page affiche la liste de tout les patients
+on les obtiens en fesant un get et en affichant sur la page les id et les pseudo!
+on peux y ajouter des patients.
+
+page add : on peux y ajouter des spatients. en cliquant sur ajouter de la page list nous arrivons sur la page add.
+nous envoyons un post avec data : prenom / nom ... 
+
+page detail : on arrive sur la page detail lorsque l'on click sur un patient de la page list
+sur la page detail nous recuperons le get et ou post de la page list on peut y ajouter le bouton supprimer ou modifier.
+pas besoin de page modifier une fonction suffit!
+
+page modifier nous renvoyons un post avec id / nom /prenom ...
+
+

@@ -1,0 +1,21 @@
+html {
+    font-size: 62.5%; /* Ré-équilibrage du Rem face au Pixel pour des calculs simples
+                        -10px correspond à 1.0rem.*/
+}
+
+body{
+
+}
+
+/*font
+@font-face {
+
+  }*/
+  
+img{
+  width: 100%;
+  height: auto;
+}
+
+
+
