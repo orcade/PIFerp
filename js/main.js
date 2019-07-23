@@ -7,11 +7,11 @@
 // 2. Define some routes
 const routes = [
   //path folder heroes
-    {path: '/', name: 'patient', component: HeroesList},
-    {path: '/patients/patient-list', name: 'patient-list', component: HeroesList},
-    {path: '/patients/patient-detail/:id', name: 'patient-detail', component:HeroesDetail},
-    {path: '/patients/patient-add', name: 'patient-add', component:HeroesAdd},
-    {path: '/patients/patient-edit/:id', name: 'patient-edit', component:HeroesEdit}
+    {path: '/', name: 'patient', component: PatientList},
+    {path: '/patients/patient_list', name: 'patient_list', component: PatientList},
+    {path: '/patients/patient_detail/:id', name: 'patient_detail', component:PatientDetail},
+    {path: '/patients/patient_add', name: 'patient_add', component:PatientAdd},
+    {path: '/patients/patient_edit/:id', name: 'patient_edit', component:PatientEdit}
 
 ];
 

@@ -1,8 +1,8 @@
-const HeroesEdit = {
+const PatientEdit = {
         template: `
     <div>
 
-    <h1>Mettre à jour le héro n°{{ $route.params.id_superhero }} </h1>
+    <h1>Mettre à jour le patient n°{{ $route.params.id_patient }} </h1>
 
         <div v-if="loading" class="loading">
           Loading...
@@ -18,17 +18,13 @@ const HeroesEdit = {
 
             <div v-if="item">
                 <label>Prénom</label>
-                <input type="text" v-model="item.prenom" />
+                <input type="text" v-model="item.prenom_patient" />
             </div>
             <div>
                 <label>Nom</label>
-                <input type="text" v-model="item.nom" />
+                <input type="text" v-model="item.nom_patient" />
             </div>
-            <div>
-                <label>Pseudo</label>
-                <input type="text" v-model="item.pseudo" />
-            </div>
-
+         
         </form>
 
         <div>
@@ -67,11 +63,11 @@ const HeroesEdit = {
             fetchData() {
                 this.loading = false;
                 const params = new URLSearchParams();
-                params.append('id', this.$route.params.id);
+                params.append('id', this.$route.params.id_patient);
                 //this.$route.params.id
-                axios.post('',params).then(response => {
-                    console.log(this.item);
-                    this.item = response.data.heros;
+                axios.post('http://192.168.1.117/testphp/PIF_02/php/patient.php',params).then(response => {
+                    //console.log(this.item);
+                    this.item = response.data.data;
                 });
             },
 
@@ -80,20 +76,20 @@ const HeroesEdit = {
             sendModif() {
                 const params = new URLSearchParams();
                 params.append('id', this.$route.params.id);
-                params.append('prenom', this.item.prenom);
-                params.append('nom', this.item.nom);
-                params.append('pseudo', this.item.pseudo);
+                params.append('prenom', this.item.prenom_patient);
+                params.append('nom', this.item.nom_patient);
+     
 
 
-                axios.post('', params).then(response => {
-                    console.log(response);
+                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/update_patient.php', params).then(response => {
+                    //console.log(response);
                     this.loading = false;
 
                     //this.item = response.data.heros;
                     //console.log(response);
 
                     if(response.data.status == 'success') {
-                        this.message = 'Héros mis à jour';
+                        this.message = 'Patient mis à jour';
                     }
                     else
                     {

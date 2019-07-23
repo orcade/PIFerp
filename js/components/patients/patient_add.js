@@ -1,9 +1,9 @@
 
-const HeroesAdd = {
+const PatientAdd = {
         template: `
 
     <div>
-        <h1>Héros n° {{ $route.params.id_superhero }}</h1>
+        <h1>Héros n° {{ $route.params.id_patient }}</h1>
 
 
 
@@ -13,22 +13,19 @@ const HeroesAdd = {
     <div>
         <div>
             <label>Prénom</label>
-            <input type="text" v-model="item.prenom" />
+            <input type="text" v-model="item.prenom_patient" />
         </div>
         <div>
             <label>Nom</label>
-            <input type="text" v-model="item.nom" />
+            <input type="text" v-model="item.nom_patient" />
         </div>
 
-        <div>
-            <label>Pseudo</label>
-            <input type="text" v-model="item.pseudo" />
-        </div>
+    
         <div>
             <button class="valider" v-on:click="sendModif">Valider</button>
 
             <button class= "valider">
-            <router-link class= "valider" to="/heroes/heroes-list">Retour</router-link>
+            <router-link class= "valider" to="/patients/patient_list">Retour</router-link>
             </button>
         </div>
     </div>
@@ -48,20 +45,20 @@ const HeroesAdd = {
     methods: {
         sendModif() {
             const params = new URLSearchParams();
-            params.append('prenom', this.item.prenom);
-            params.append('nom', this.item.nom);
-            params.append('pseudo', this.item.pseudo);
+            params.append('prenom', this.item.prenom_patient);
+            params.append('nom', this.item.nom_patient);
+        
 
 
-            axios.post(' ', params).then(response => {
+            axios.post(' http://192.168.1.117/testphp/PIF_02/php/component_patient/insert_patient.php', params).then(response => {
                 console.log(response);
               
 
-                //this.item = response.data.heros;
-                //console.log(response);
+                this.item = response.data.data;
+                console.log(response);
 
                 if(response.data.status == 'success') {
-                    this.message = 'Heros ajouté';
+                    this.message = 'Patient ajouté';
                 }
                 else
                 {
