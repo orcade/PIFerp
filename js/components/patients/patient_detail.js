@@ -57,13 +57,12 @@ methods: {
     fetchData() {
         this.loading = false;
         const params = new URLSearchParams();
-        params.append(this.$route.params.id_patient);
+        params.append('id', this.$route.params.id);
         //this.$route.params.id
         axios.post('http://192.168.1.117/testphp/PIF_02/php/patient.php',params).then(response => {
-            //console.log("Toutes les données"+response.data.data);
+
             this.item = response.data.data;
-            //console.log(this.item);
-           
+            console.log(response);
         });
     },
 
@@ -79,8 +78,8 @@ methods: {
                     //console.log(response);
                     this.loading = false;
 
-                    this.item = response.data.data;
-                    //console.log(response);
+                    //this.item = response.data.data;
+                    //onsole.log(response);
 
                     if(response.data.status == 'success') {
                         this.message = 'Patient supprimé';
