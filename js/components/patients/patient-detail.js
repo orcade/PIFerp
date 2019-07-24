@@ -79,14 +79,12 @@ methods: {
                 params.append('prenom', this.item.prenom_patient);
                 params.append('nom', this.item.nom_patient);
              
-
-
                 axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/delete_patient.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 
                     //this.item = response.data.data;
-                    //onsole.log(response);
+                    //Console.log(response);
 
                     if(response.data.status == 'success') {
                         this.message = 'Patient supprimé';
