@@ -12,8 +12,6 @@ const PatientEdit = {
           {{ error }}
         </div>
 
-
-
         <form>
 
             <div v-if="item">
@@ -88,12 +86,12 @@ const PatientEdit = {
                     //this.item = response.data.heros;
                     //console.log(response);
 
-                    if(response.data.status == 'success') {
-                        this.message = 'Patient mis à jour';
+                    if(response.data.error == 'success') {
+                        this.message =  response.data.error_message;
                     }
                     else
                     {
-                        this.message = 'Veuillez, Reessayez plus tard svp';
+                        this.message =  response.data.error_message;
                     }
                 });
             }

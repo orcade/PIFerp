@@ -69,7 +69,7 @@ methods: {
 
             this.item = response.data.data;
             console.log( this.item )
-            alert('test');
+            //alert('test');
         });
     },
 
@@ -86,14 +86,15 @@ methods: {
                     //this.item = response.data.data;
                     //Console.log(response);
 
-                    if(response.data.status == 'success') {
-                        this.message = 'Patient supprimé';
+                    if(response.data.error == 'false') {
+                        this.message = response.data.error_message;
                     }
                     else
                     {
-                        this.message = 'Veuillez, Reessayez plus tard svp';
+                        this.message =  response.data.error_message;
                     }
                 });
     },
 },
 };
+
