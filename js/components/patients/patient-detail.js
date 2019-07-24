@@ -22,17 +22,18 @@ const PatientDetail = {
 </p>
 
 
-        <router-link :to="{ name: 'patient_detail', params: { id: item.id_patient }}"></router-link>
+
+        <router-link :to="{ name: 'patient-detail', params: { id: item.id_patient }}"></router-link>
 
 
         <button class="edit">
-        <router-link class="edit":to="{ name: 'patient_edit', params: { id: item.id_patient }}"> Modifier</router-link>
+        <router-link class="edit":to="{ name: 'patient-edit', params: { id: item.id_patient }}"> Modifier</router-link>
         </button>
 
         <button class="delete" v-on:click="deletePatient">supprimer</button>
 
         <button class="return">
-        <router-link class="return" to="/patients/patient_list">Retour</router-link>
+        <router-link class="return" to="/patients/patient-list">Retour</router-link>
         </button>
 
         {{message}}
@@ -49,6 +50,7 @@ data() {
     }
 },
 created() {
+    
     this.fetchData();
 },
 
@@ -57,12 +59,17 @@ methods: {
     fetchData() {
         this.loading = false;
         const params = new URLSearchParams();
+        //console.log('test');
+        //console.log(this.$route.params);
         params.append('id', this.$route.params.id);
+        //params.append('id', this.$route.params.id_patient);
+        //params.append('id', this.item.id_patient);
         //this.$route.params.id
-        axios.post('http://192.168.1.117/testphp/PIF_02/php/patient.php',params).then(response => {
+        axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
 
             this.item = response.data.data;
-            console.log(response);
+            console.log(this.item.id_patient);
+            alert('test');
         });
     },
 

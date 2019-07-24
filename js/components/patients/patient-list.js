@@ -14,14 +14,14 @@ const PatientList = {
     </div>
 
     <button class="add">
-    <router-link class="add"  to=/patients/patient_add>Ajouter patient</router-link>
+    <router-link class="add"  to=/patients/patient-add>Ajouter patient</router-link>
     </button>
 
     <!-- on vérifie que les patients n'est pas vide, et puis on boucle avec v-for sur un tableau d'objet "item" -->
 
     <ul v-if="patients" id="example-1">
         <li v-for="item in patients">
-            <router-link :to="{ name: 'customer-detail', params: { id: item.id_patient }}">{{ item.name_patient }} {{ item.prenom_patient}}</router-link>
+            <router-link :to="{ name: 'patient-detail', params: { id: item.id_patient }}">{{ item.nom_patient }} {{ item.prenom_patient}}</router-link>
         </li>
     </ul>
 
