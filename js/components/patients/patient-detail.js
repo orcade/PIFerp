@@ -68,14 +68,14 @@ methods: {
         axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
 
             this.item = response.data.data;
-            console.log(this.item.id_patient);
+            console.log( this.item )
             alert('test');
         });
     },
 
     deletePatient(){
         const params = new URLSearchParams();
-                params.append('id', this.$route.params.id_patient);
+                params.append('id', this.$route.params.id);
                 params.append('prenom', this.item.prenom_patient);
                 params.append('nom', this.item.nom_patient);
              
