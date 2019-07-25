@@ -17,7 +17,13 @@ const routes = [
     {path: '/medecins/medecin-list', name: 'medecin-list', component: MedecinList},
     {path: '/medecins/medecin-detail/:id', name: 'medecin-detail', component:MedecinDetail},
     {path: '/medecins/medecin-add', name: 'medecin-add', component:MedecinAdd},
-    {path: '/medecins/medecin-edit/:id', name: 'medecin-edit', component:MedecinEdit}
+    {path: '/medecins/medecin-edit/:id', name: 'medecin-edit', component:MedecinEdit},
+    
+    {path: '/', name: 'medicament', component: MedicamentList},
+    {path: '/medicaments/medicament-list', name: 'medicament-list', component: MedicamentList},
+    {path: '/medicaments/medicament-detail/:id', name: 'medicament-detail', component:MedicamentDetail},
+    {path: '/medicaments/medicament-add', name: 'medicament-add', component:MedicamentAdd},
+    {path: '/medicaments/medicament-edit/:id', name: 'medicament-edit', component:MedicamentEdit}
 
 ];
 
