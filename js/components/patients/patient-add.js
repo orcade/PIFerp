@@ -51,7 +51,7 @@ const PatientAdd = {
 
 
             axios.post(' http://192.168.1.117/testphp/PIF_02/php/component_patient/insert_patient.php', params).then(response => {
-                console.log(response);
+                console.log(this.nom_patient);
               
 
                 this.item = response.data.data;
