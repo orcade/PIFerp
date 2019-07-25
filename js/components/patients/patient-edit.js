@@ -73,7 +73,8 @@ const PatientEdit = {
 
             sendModif() {
                 const params = new URLSearchParams();
-                params.append('id', this.$route.params.id);
+                //params.append('id', this.$route.params.id);
+                params.append('id', this.item.id_patient);
                 params.append('prenom', this.item.prenom_patient);
                 params.append('nom', this.item.nom_patient);
      

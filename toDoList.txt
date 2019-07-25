@@ -10,7 +10,7 @@ convention de nommage: snake case/var en francais!
 
 v1 affichage des patients add/edit/delete
 v2 page contact/login/ et rajout de donées DB 
-v3export des donnés/ print/ rajput page et requête medecins et medicaments
+v3export des donnés/ print/ rajout page et requête medecins et medicaments
 
 
 <-----------------BACK--------------------->
