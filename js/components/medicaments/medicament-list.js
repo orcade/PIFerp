@@ -45,6 +45,7 @@ const MedicamentList = {
     methods: {
 
         fetchData() {
+
             axios.get('http://192.168.1.117/testphp/PIF_02/php/medicament.php').then(response => {
                 this.medicaments= response.data.data;
                 console.log(response.data.data);
