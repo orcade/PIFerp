@@ -3,7 +3,7 @@ const MedicamentAdd = {
         template: `
 
     <div>
-        <h1>Medecin n° {{ $route.params.id_medecin }}</h1>
+        <h1>Medecin n° {{ $route.params.id_medicament }}</h1>
 
 
 

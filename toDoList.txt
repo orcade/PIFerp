@@ -100,4 +100,8 @@ MERCREDI
 JEUDI
 VENDREDI
 
-
+<----------attention a faire ---------------------------->
+ok fonctionne reste delai retour et chemin retour a verif
++ message d erreur et confirmation 
++ confirmation  suppression
+css
