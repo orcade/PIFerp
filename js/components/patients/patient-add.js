@@ -3,7 +3,7 @@ const PatientAdd = {
         template: `
 
     <div>
-        <h1>Patient n° {{ $route.params.id_patient }}</h1>
+        <h1>Héros n° {{ $route.params.id_patient }}</h1>
 
 
 
@@ -45,8 +45,8 @@ const PatientAdd = {
     methods: {
         sendModif() {
             const params = new URLSearchParams();
-            params.append('Prenom', this.item.prenom_patient);
-            params.append('Nom', this.item.nom_patient);
+            params.append('prenom', this.item.prenom_patient);
+            params.append('nom', this.item.nom_patient);
         
 
 
@@ -55,14 +55,14 @@ const PatientAdd = {
               
 
                 this.item = response.data.data;
-                console.log(this.item.nom_patient);
+                console.log(response);
 
-                if(response.data.error == 'false') {
-                    this.message = response.data.error_message;
+                if(response.data.status == 'success') {
+                    this.message = 'Patient ajouté';
                 }
                 else
                 {
-                    this.message = response.data.error_message;
+                    this.message = 'Veuillez, Reessayez plus tard svp';
                 }
             });
         }

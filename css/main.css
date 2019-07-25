@@ -4,18 +4,32 @@ html {
 }
 
 body{
-
+background-color: #e3e3e3;
 }
 
 /*font
 @font-face {
 
   }*/
-  
+
 img{
   width: 100%;
   height: auto;
 }
 
+.menu{
+  float:right;
+  background-color: #236b4a;
+  width: 12rem;
+  height: 4rem;
+  display: inline-block;
+  text-align: center;
 
-
+}
+ .menu a{
+   color:white;
+   margin-top: 1.5rem;
+   display: inline-block;
+   text-decoration: none;
+   font-style: 45px;
+ }
