@@ -27,7 +27,7 @@ const PatientDetail = {
 
 
         <button class="edit">
-        <router-link class="edit":to="{ name: 'patient-edit', params: { id:this.$route.params.id }}"> Modifier</router-link>
+        <router-link class="edit":to="{ name: 'patient-edit', params: { id: item.id_patient }}"> Modifier</router-link>
         </button>
 
         <button class="delete" v-on:click="deletePatient">supprimer</button>
@@ -68,8 +68,8 @@ methods: {
         axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
 
             this.item = response.data.data;
-            //console.log( this.item )
-            //alert('test');
+            console.log( this.item )
+            alert('test');
         });
     },
 
@@ -86,12 +86,12 @@ methods: {
                     //this.item = response.data.data;
                     //Console.log(response);
 
-                    if(response.data.data.error == 'false') {
+                    if(response.data.status == 'success') {
                         this.message = 'Patient supprimé';
                     }
                     else
                     {
-                        this.message = response.data.error_message;
+                        this.message = 'Veuillez, Reessayez plus tard svp';
                     }
                 });
     },

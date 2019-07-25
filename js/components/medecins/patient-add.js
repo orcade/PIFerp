@@ -45,24 +45,24 @@ const PatientAdd = {
     methods: {
         sendModif() {
             const params = new URLSearchParams();
-            params.append('prenom_patient', this.item.prenom_patient);
-            params.append('nom_patient', this.item.nom_patient);
+            params.append('prenom', this.item.prenom_patient);
+            params.append('nom', this.item.nom_patient);
         
 
 
             axios.post(' http://192.168.1.117/testphp/PIF_02/php/component_patient/insert_patient.php', params).then(response => {
-                console.log(this.item);
+                console.log(response);
               
 
                 this.item = response.data.data;
                 console.log(response);
 
-                if(response.data.error == 'false') {
-                    this.message = 'Patient supprimé';
+                if(response.data.status == 'success') {
+                    this.message = 'Patient ajouté';
                 }
                 else
                 {
-                    this.message = response.data.error_message;
+                    this.message = 'Veuillez, Reessayez plus tard svp';
                 }
             });
         }

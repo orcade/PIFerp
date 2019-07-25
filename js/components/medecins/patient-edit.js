@@ -2,7 +2,7 @@ const PatientEdit = {
         template: `
     <div>
 
-    <h1>Mettre à jour le patient n°{{ $route.params.id }} </h1>
+    <h1>Mettre à jour le patient n°{{ $route.params.id_patient }} </h1>
 
         <div v-if="loading" class="loading">
           Loading...
@@ -16,7 +16,7 @@ const PatientEdit = {
 
         <form>
 
-            <div>
+            <div v-if="item">
                 <label>Prénom</label>
                 <input type="text" v-model="item.prenom_patient" />
             </div>
@@ -28,11 +28,12 @@ const PatientEdit = {
         </form>
 
         <div>
-            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le client</button>
-
-            <button class="return">
-             <router-link class="return" to="/">Retour</router-link>
+            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le client
             </button>
+
+        <button class="return">
+        <router-link class="return" to="/">Retour</router-link>
+        </button>
 
         </div>
 
@@ -62,9 +63,9 @@ const PatientEdit = {
             fetchData() {
                 this.loading = false;
                 const params = new URLSearchParams();
-                params.append('id', this.$route.params.id);
+                params.append('id', this.$route.params.id_patient);
                 //this.$route.params.id
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
+                axios.post('http://192.168.1.117/testphp/PIF_02/php/patient.php',params).then(response => {
                     //console.log(this.item);
                     this.item = response.data.data;
                 });
@@ -74,12 +75,9 @@ const PatientEdit = {
 
             sendModif() {
                 const params = new URLSearchParams();
-               
-                //params.append('id', this.$route.params.id);
-                params.append('id', this.item.id_patient);
-                
-                params.append('prenom_patient', this.item.prenom_patient);
-                params.append('nom_patient', this.item.nom_patient);
+                params.append('id', this.$route.params.id);
+                params.append('prenom', this.item.prenom_patient);
+                params.append('nom', this.item.nom_patient);
      
 
 
@@ -90,12 +88,12 @@ const PatientEdit = {
                     //this.item = response.data.heros;
                     //console.log(response);
 
-                    if(response.data.error == 'false') {
+                    if(response.data.status == 'success') {
                         this.message = 'Patient mis à jour';
                     }
                     else
                     {
-                        this.message = response.data.error_message;
+                        this.message = 'Veuillez, Reessayez plus tard svp';
                     }
                 });
             }
