@@ -1,8 +1,8 @@
-const PatientEdit = {
+const MedicamentEdit = {
         template: `
     <div>
 
-    <h1>Mettre à jour le patient n°{{ $route.params.id }} </h1>
+    <h1>Mettre à jour le médecin n°{{ $route.params.id }} </h1>
 
         <div v-if="loading" class="loading">
           Loading...
@@ -18,17 +18,17 @@ const PatientEdit = {
 
             <div>
                 <label>Prénom</label>
-                <input type="text" v-model="item.prenom_patient" />
+                <input type="text" v-model="item.prenom_medecin" />
             </div>
             <div>
                 <label>Nom</label>
-                <input type="text" v-model="item.nom_patient" />
+                <input type="text" v-model="item.nom_medecin" />
             </div>
          
         </form>
 
         <div>
-            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le client</button>
+            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le medecin</button>
 
             <button class="return">
              <router-link class="return" to="/">Retour</router-link>
@@ -64,7 +64,7 @@ const PatientEdit = {
                 const params = new URLSearchParams();
                 params.append('id', this.$route.params.id);
                 //this.$route.params.id
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
+                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/detail_medecin.php',params).then(response => {
                     //console.log(this.item);
                     this.item = response.data.data;
                 });
@@ -76,22 +76,22 @@ const PatientEdit = {
                 const params = new URLSearchParams();
                
                 //params.append('id', this.$route.params.id);
-                params.append('id', this.item.id_patient);
+                params.append('id', this.item.id_medecin);
                 
-                params.append('prenom_patient', this.item.prenom_patient);
-                params.append('nom_patient', this.item.nom_patient);
+                params.append('prenom_medecin',this.item.prenom_medecin);
+                params.append('nom_medecin',this.item.nom_medecin);
      
 
 
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/update_patient.php', params).then(response => {
+                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/update_medecin.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 
-                    //this.item = response.data.heros;
+                    //this.item = response.data.data;
                     //console.log(response);
 
                     if(response.data.error == 'false') {
-                        this.message = 'Patient mis à jour';
+                        this.message = 'Médecin mis à jour';
                     }
                     else
                     {
