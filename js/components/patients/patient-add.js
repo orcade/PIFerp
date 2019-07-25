@@ -3,7 +3,7 @@ const PatientAdd = {
         template: `
 
     <div>
-        <h1>Héros n° {{ $route.params.id_patient }}</h1>
+        <h1>Patient n° {{ $route.params.id_patient }}</h1>
 
 
 
@@ -58,7 +58,7 @@ const PatientAdd = {
                 console.log(response);
 
                 if(response.data.error == 'false') {
-                    this.message = 'Patient supprimé';
+                    this.message = 'Patient ajouté';
                 }
                 else
                 {

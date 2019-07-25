@@ -47,7 +47,7 @@ const PatientList = {
         fetchData() {
             axios.get('http://192.168.1.117/testphp/PIF_02/php/patient.php').then(response => {
                 this.patients= response.data.data;
-                //console.log(response.data.data);
+                console.log(response.data.data);
                 //alert("axiosok");
             });
         }

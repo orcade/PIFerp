@@ -87,11 +87,11 @@ methods: {
                     //Console.log(response);
 
                     if(response.data.data.error == 'false') {
-                        this.message = 'Patient supprimé';
+                        this.message = response.data.data_message;
                     }
                     else
                     {
-                        this.message = response.data.error_message;
+                        this.message = response.data.data.error_message;
                     }
                 });
     },

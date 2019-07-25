@@ -11,7 +11,13 @@ const routes = [
     {path: '/patients/patient-list', name: 'patient-list', component: PatientList},
     {path: '/patients/patient-detail/:id', name: 'patient-detail', component:PatientDetail},
     {path: '/patients/patient-add', name: 'patient-add', component:PatientAdd},
-    {path: '/patients/patient-edit/:id', name: 'patient-edit', component:PatientEdit}
+    {path: '/patients/patient-edit/:id', name: 'patient-edit', component:PatientEdit},
+
+    {path: '/', name: 'medecin', component: MedecinList},
+    {path: '/medecins/medecin-list', name: 'medecin-list', component: MedecinList},
+    {path: '/medecins/medecin-detail/:id', name: 'medecin-detail', component:MedecinDetail},
+    {path: '/medecins/medecin-add', name: 'medecin-add', component:MedecinAdd},
+    {path: '/medecins/medecin-edit/:id', name: 'medecin-edit', component:MedecinEdit}
 
 ];
 
