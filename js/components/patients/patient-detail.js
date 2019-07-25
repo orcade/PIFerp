@@ -68,8 +68,8 @@ methods: {
         axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
 
             this.item = response.data.data;
-            console.log( this.item )
-            alert('test');
+            //console.log( this.item )
+            //alert('test');
         });
     },
 
@@ -86,12 +86,12 @@ methods: {
                     //this.item = response.data.data;
                     //Console.log(response);
 
-                    if(response.data.status == 'success') {
+                    if(response.data.data.error == false) {
                         this.message = 'Patient supprimé';
                     }
                     else
                     {
-                        this.message = 'Veuillez, Reessayez plus tard svp';
+                        this.message = response.data.data.error_message;
                     }
                 });
     },

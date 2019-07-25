@@ -51,18 +51,18 @@ const PatientAdd = {
 
 
             axios.post(' http://192.168.1.117/testphp/PIF_02/php/component_patient/insert_patient.php', params).then(response => {
-                console.log(this.nom_patient);
+                console.log(this.item);
               
 
                 this.item = response.data.data;
                 console.log(response);
 
-                if(response.data.status == 'success') {
-                    this.message = 'Patient ajouté';
+                if(response.data.data.error == false) {
+                    this.message = 'Patient supprimé';
                 }
                 else
                 {
-                    this.message = 'Veuillez, Reessayez plus tard svp';
+                    this.message = response.data.data.error_message;
                 }
             });
         }
