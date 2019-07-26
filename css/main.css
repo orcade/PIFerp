@@ -1,9 +1,14 @@
 html {
-    font-size: 62.5%; /* Ré-équilibrage du Rem face au Pixel pour des calculs simples
-                        -10px correspond à 1.0rem.*/
+    font-size: 100%; 
+    
 }
+ /* Ré-équilibrage du Rem face au Pixel pour des calculs simples
+                        -10px correspond à 1.0rem.*/
 
 body{
+font-family: 'Courier New', Courier, monospace;
+background-color: cadetblue;
+color: black;
 
 }
 
@@ -16,6 +21,37 @@ img{
   width: 100%;
   height: auto;
 }
+.router-link-active{
+  text-decoration: none;
+  color: black;
+}
+.valider{
+  text-decoration: none;
+}
+.add{
+  text-decoration: none;
+  color: black;
+}
 
-
-
+.table{
+  list-style: none;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  
+}
+.table a
+{
+  text-decoration: none;
+  color: black;
+  
+}
+.is-active{
+  margin: 0;
+  padding: 0;
+}
+.edit{
+  text-decoration: none;
+}
+.return{
+  text-decoration: none;
+}

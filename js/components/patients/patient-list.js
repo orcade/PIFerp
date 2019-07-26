@@ -19,8 +19,8 @@ const PatientList = {
 
     <!-- on vérifie que les patients n'est pas vide, et puis on boucle avec v-for sur un tableau d'objet "item" -->
 
-    <ul v-if="patients" id="example-1">
-        <li v-for="item in patients">
+    <ul class="is-active"v-if="patients" id="example-1">
+        <li class="table"v-for="item in patients">
             <router-link :to="{ name: 'patient-detail', params: { id: item.id_patient }}">{{ item.nom_patient }} {{ item.prenom_patient}}</router-link>
         </li>
     </ul>
