@@ -1,31 +1,25 @@
 
-const PatientAdd = {
+const MedicamentAdd = {
         template: `
 
     <div>
-        <h1>Patient n° {{ $route.params.id_patient }}</h1>
-
-
+        <h1>Médicament n° {{ $route.params.id_medicament }}</h1>
 
     <div v-if="error" class="error">
       {{ error }}
     </div>
     <div>
         <div>
-            <label>Prénom</label>
-            <input type="text" v-model="item.prenom_patient" />
-        </div>
-        <div>
-            <label>Nom</label>
-            <input type="text" v-model="item.nom_patient" />
+            <label>Nom du médicament</label>
+            <input type="text" v-model="item.nom_medicament" />
         </div>
 
-    
+
         <div>
             <button class="valider" v-on:click="sendModif">Valider</button>
 
             <button class= "valider">
-            <router-link class= "valider" to="/patients/patient_list">Retour</router-link>
+            <router-link class= "valider" to="/medicaments/medicament_list">Retour</router-link>
             </button>
         </div>
     </div>
@@ -35,7 +29,7 @@ const PatientAdd = {
 `,
     data() {
         return {
-           
+
             item: {},
             error: null,
             message: ''
@@ -45,20 +39,19 @@ const PatientAdd = {
     methods: {
         sendModif() {
             const params = new URLSearchParams();
-            params.append('prenom_patient', this.item.prenom_patient);
-            params.append('nom_patient', this.item.nom_patient);
-        
+            params.append('nom_medicament', this.item.nom_medicament);
 
 
-            axios.post(' http://192.168.1.117/testphp/PIF_02/php/component_patient/insert_patient.php', params).then(response => {
+
+            axios.post(' http://192.168.1.117/testphp/PIF_02/php/component_medicament/insert_medicament.php', params).then(response => {
                 console.log(this.item);
-              
+
 
                 this.item = response.data.data;
-                console.log(response);
+                console.log(this.item.nom_medicament);
 
                 if(response.data.error == 'false') {
-                    this.message = 'Patient ajouté';
+                    this.message = 'Medicament ajouté';
                 }
                 else
                 {

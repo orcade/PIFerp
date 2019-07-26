@@ -1,6 +1,6 @@
 etapes a suivre erp medical:
 
-ajouter membres git ok 
+ajouter membres git ok
 
 producer (db) url=" " v2
 
@@ -9,8 +9,8 @@ heroes url=" " v1
 convention de nommage: snake case/var en francais!
 
 v1 affichage des patients add/edit/delete
-v2 page contact/login/ et rajout de donées DB 
-v3export des donnés/ print/ rajput page et requête medecins et medicaments
+v2 page contact/login/ et rajout de donées DB
+v3export des donnés/ print/ rajout page et requête medecins et medicaments
 
 
 <-----------------BACK--------------------->
@@ -33,10 +33,10 @@ DATA (patients){
         prenom_patient
         adresse_patient
         tel_patient
-    
+
 }
 
- v2 et rajout de donées DB 
+ v2 et rajout de donées DB
 
 <-----------------FRONT--------------------->
 
@@ -44,13 +44,13 @@ DATA (patients){
 //page list
 //page detail
 <--actions-->
-//add 
+//add
 //edit
 //delete
 
 <--html-->
-router links: patient v1 
-router links: medecin V2 
+router links: patient v1
+router links: medecin V2
 router links: medicament v3
 integration de base html du wareframe (version mobile) grille bootstraap
 verification code w3c
@@ -69,7 +69,7 @@ front ok
 
 versions simplifiée dans un premier temps V1.
 
-menu ham 
+menu ham
 
 <--css-->
 integration design final
@@ -84,7 +84,7 @@ on les obtiens en fesant un get et en affichant sur la page les id et les pseudo
 on peux y ajouter des patients.
 
 page add : on peux y ajouter des spatients. en cliquant sur ajouter de la page list nous arrivons sur la page add.
-nous envoyons un post avec data : prenom / nom ... 
+nous envoyons un post avec data : prenom / nom ...
 
 page detail : on arrive sur la page detail lorsque l'on click sur un patient de la page list
 sur la page detail nous recuperons le get et ou post de la page list on peut y ajouter le bouton supprimer ou modifier.
@@ -100,4 +100,49 @@ MERCREDI
 JEUDI
 VENDREDI
 
+<----------attention a faire ---------------------------->
+ok fonctionne reste delai retour
+et chemin retour a verif
++ message d erreur et confirmation
++ confirmation  suppression
++ajouter image voit meteo ludo
+css
+js tableau ajouter 6 et bouton voir plus
+<--page patient-->
+bouton search patient et afficher patient dans detail
+bouton rechercher medecin du patient + affichage medecin dans detail patient
+bouton medicament patients
 
+<--page medecin-->
+
+bouton rechercher patient du medecin + affichage patient dans detail medecin
+
+<--page medicament-->
+bouton rechercher medicament + affichage dans detail medicament
+
+
+
+verif medicament
+demander ludo serveur adresse url
+
+
+  <table>
+    <thead>
+      <tr>
+        <th v-for="patients"
+            {{ item.nom_patient }} {{ item.prenom_patient}} <!--{{ item.naissance_patient}}-->
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="patients" id="example-1">
+        <td>
+            <router-link :to="{ name: 'patient-detail', params: { id: item.id_patient }}">{{ item.nom_patient }} {{ item.prenom_patient}}</router-link>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<------------url design---------------->
+https://projects.invisionapp.com/prototype/PROJET-GROUPE-cjyitjj0q006y2d01623ehug7/inspect/b5031b46https://projects.invisionapp.com/prototype/PROJET-GROUPE-cjyitjj0q006y2d01623ehug7/inspect/b5031b46
