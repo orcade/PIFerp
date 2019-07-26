@@ -100,8 +100,53 @@ MERCREDI
 JEUDI
 VENDREDI
 
+
 <----------attention a faire ---------------------------->
 ok fonctionne reste delai retour et chemin retour a verif
 + message d erreur et confirmation 
+ok fonctionne reste delai retour
+et chemin retour a verif
++ message d erreur et confirmation
 + confirmation  suppression
 css
++ajouter image voit meteo ludo
+css
+js tableau ajouter 6 et bouton voir plus
+<--page patient-->
+bouton search patient et afficher patient dans detail
+bouton rechercher medecin du patient + affichage medecin dans detail patient
+bouton medicament patients
+
+<--page medecin-->
+
+bouton rechercher patient du medecin + affichage patient dans detail medecin
+
+<--page medicament-->
+bouton rechercher medicament + affichage dans detail medicament
+
+
+
+verif medicament
+demander ludo serveur adresse url
+
+
+  <table>
+    <thead>
+      <tr>
+        <th v-for="patients"
+            {{ item.nom_patient }} {{ item.prenom_patient}} <!--{{ item.naissance_patient}}-->
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="patients" id="example-1">
+        <td>
+            <router-link :to="{ name: 'patient-detail', params: { id: item.id_patient }}">{{ item.nom_patient }} {{ item.prenom_patient}}</router-link>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<------------url design---------------->
+https://projects.invisionapp.com/prototype/PROJET-GROUPE-cjyitjj0q006y2d01623ehug7/inspect/b5031b46https://projects.invisionapp.com/prototype/PROJET-GROUPE-cjyitjj0q006y2d01623ehug7/inspect/b5031b46

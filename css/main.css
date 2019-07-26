@@ -6,7 +6,7 @@ html {
 }
 
 body{
-background-color: #e3e3e3;
+
 background-color: white;
 
 }
@@ -31,7 +31,7 @@ margin-right: 120px;
 
 }
 .menu a{
-@ -31,5 +36,101 @@ img{
+ color:white;
  margin-top: 1.5rem;
  display: inline-block;
  text-decoration: none;
@@ -94,6 +94,8 @@ margin-right: 120px;
 a:hover{
 opacity: 0.6;
 }
+
+
 .valider{
  color:blue;
  font-size:15px;
@@ -133,4 +135,21 @@ opacity: 0.6;
   background-color: #014F94;
   margin-top: 40rem;
   margin-left: 50px;
+}
+.champs{
+  font-size: 20px;
+  font-family:arial;
+  color:white;
+ 
+
+}
+
+.entree{
+  font-size: 30px;
+  font-family:arial;
+  color:white;
+}
+
+.form{
+   margin-top: -60px;
 }
