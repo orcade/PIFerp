@@ -1,173 +1,136 @@
+/*-------------------balise generique-----------------------*/
+
 html {
-    font-size: 100%; 
-    
+  font-size: 62.5%; /* Ré-équilibrage du Rem face au Pixel pour des calculs simples
+                      -10px correspond à 1.0rem.*/
 }
- /* Ré-équilibrage du Rem face au Pixel pour des calculs simples
-                        -10px correspond à 1.0rem.*/
 
 body{
-<<<<<<< HEAD
-<<<<<<< HEAD
-font-family: 'Courier New', Courier, monospace;
-background-color: cadetblue;
-color: black;
-=======
-background-color: white;
->>>>>>> 30a1ef4f6584771be696628b390d4668effbd28a
-
-=======
 background-color: #e3e3e3;
->>>>>>> parent of 30a1ef4... vession test
+background-color: white;
+
 }
 
 /*font
-@font-face {
-
-  }*/
-
-img{
-  width: 100%;
-  height: auto;
+@ -17,13 +20,15 @@ img{
+height: auto;
 }
-.router-link-active{
-  text-decoration: none;
-  color: black;
+
+/*-------------------menu-----------------------*/
+.menu{
+float:right;
+background-color: #236b4a;
+width: 12rem;
+height: 4rem;
+background-color: #014F94;
+width: 567px;
+height: 58px;
+display: inline-block;
+text-align: center;
+margin-right: 120px;
+
+}
+.menu a{
+@ -31,5 +36,101 @@ img{
+ margin-top: 1.5rem;
+ display: inline-block;
+ text-decoration: none;
+ font-style: 45px;
+ font-size: 25px;
+ padding: 0px 30px 40px;
+ font-family:arial;
+ font-weight: bold;
+}
+
+
+/*-------------------bouton-----------------------*/
+.delete{
+ color:red;
+ font-size:15px;
+ border-radius: 15px;
+ padding: 10px;
+ width: 100px;
+ margin-right: 15px;
+}
+
+.edit{
+ color:green;
+ font-size:15px;
+ border-radius: 15px;
+ padding: 10px;
+ width: 150px;
+ margin-right: 15px;
+ margin-top: 15px;
+}
+
+.return{
+ color:blue;
+ font-size:15px;
+ border-radius: 15px;
+ width: 100px;
+ padding: 10px;
+ margin-right: 15px;
+ margin-top: 15px;
+}
+
+.add{
+ color:black;
+ font-size:20px;
+ width: 150px;
+ height: 40px;
+ margin-left: 25px;
+ margin-top: 15px;
+ font-family:arial;
+ text-decoration-line: none;
+ font-weight: bold;
+ text-align: center;
+ border-radius: 2px;
+
+}
+.add a{
+ margin-left: -10px;
+}
+
+a:hover{
+opacity: 0.6;
 }
 .valider{
-  text-decoration: none;
-}
-.add{
-  text-decoration: none;
-  color: black;
+ color:blue;
+ font-size:15px;
+ border-radius: 15px;
+ width: 80px;
+ margin-left: 15px;
+ margin-top: 15px;
+
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-.table{
-  list-style: none;
-  text-decoration: none;
-  padding: 0.5rem 0;
-  
-}
-.table a
-{
-  text-decoration: none;
-  color: black;
-  
-}
-.is-active{
-  margin: 0;
-  padding: 0;
-}
-.edit{
-  text-decoration: none;
-}
-.return{
-  text-decoration: none;
-}
-=======
-/*-------------------menu-----------------------*/
-=======
->>>>>>> parent of 30a1ef4... vession test
-.menu{
-  float:right;
-  background-color: #236b4a;
-  width: 12rem;
-  height: 4rem;
-  display: inline-block;
+.search {
+  color:black;
+  font-size:20px;
+  width: 150px;
+  height: 40px;
+  margin-left: 15px;
+  margin-top: 15px;
+  font-family:arial;
+  text-decoration-line: none;
+  font-weight: bold;
   text-align: center;
+  border-radius: 2px;
+  margin-top: 15rem;
+  margin-left: 40px;
 
 }
- .menu a{
-   color:white;
-   margin-top: 1.5rem;
-   display: inline-block;
-   text-decoration: none;
-   font-style: 45px;
- }
-<<<<<<< HEAD
 
- .edit{
-   color:green;
-   font-size:15px;
-   border-radius: 15px;
-   padding: 10px;
-   width: 150px;
-   margin-right: 15px;
-   margin-top: 15px;
- }
+.search a{
+   margin-left: -0px;
 
- .return{
-   color:blue;
-   font-size:15px;
-   border-radius: 15px;
-   width: 100px;
-   padding: 10px;
-   margin-right: 15px;
-   margin-top: 15px;
- }
-
- .add{
-   color:black;
-   font-size:20px;
-   width: 150px;
-   height: 40px;
-   margin-left: 25px;
-   margin-top: 15px;
-   font-family:arial;
-   text-decoration-line: none;
-   font-weight: bold;
-   text-align: center;
-   border-radius: 2px;
-
- }
- .add a{
-   margin-left: -10px;
- }
-
- a:hover{
-  opacity: 0.6;
- }
- .valider{
-   color:blue;
-   font-size:15px;
-   border-radius: 15px;
-   width: 80px;
-   margin-left: 15px;
-   margin-top: 15px;
-
- }
-
-  .search {
-    color:black;
-    font-size:20px;
-    width: 150px;
-    height: 40px;
-    margin-left: 15px;
-    margin-top: 15px;
-    font-family:arial;
-    text-decoration-line: none;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 2px;
-    margin-top: 15rem;
-    margin-left: 40px;
-
-  }
-
-  .search a{
-     margin-left: -0px;
-
-  }
-  /*-------------------contenu page patient list-----------------------*/
-  .rectangle {
-    height: 224px;
-    width: 393px;
-    border-radius: 8px;
-    background-color: #014F94;
-    margin-top: 40rem;
-    margin-left: 50px;
-  }
->>>>>>> 30a1ef4f6584771be696628b390d4668effbd28a
-=======
->>>>>>> parent of 30a1ef4... vession test
+}
+/*-------------------contenu page patient list-----------------------*/
+.rectangle {
+  height: 224px;
+  width: 393px;
+  border-radius: 8px;
+  background-color: #014F94;
+  margin-top: 40rem;
+  margin-left: 50px;
+}
