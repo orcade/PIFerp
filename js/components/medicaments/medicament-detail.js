@@ -2,7 +2,7 @@ const MedicamentDetail = {
     template: `
 <div>
 
-<h1>Détail du medicament{{$route.params.id_medicament}}</h1>
+<h1>Détail du médecin{{$route.params.id_patient}}</h1>
 
 
 <div v-if="loading" class="loading">
@@ -14,27 +14,26 @@ const MedicamentDetail = {
 </div>
 
 <p v-if="item">
-    Id Patient: {{ item.id_medicament}} <br />
-    Nom du medicament: {{ item.nom_medicament}} <br />
-    Posologie:<br/>
-
-
-
+    Id Patient: {{ item.id_medecin }} <br />
+    Prenom: {{ item.prenom_medecin}} <br />
+    Nom: {{ item.nom_medecin}} <br />
+    Adresse: <br/>
+    Téléphone: 
 </p>
 
 
 
-        <router-link :to="{ name: 'medicament-detail', params: { id: item.id_medicament }}"></router-link>
+        <router-link :to="{ name: 'medecin-detail', params: { id: item.id_medecin }}"></router-link>
 
 
         <button class="edit">
-        <router-link class="edit":to="{ name: 'medicament-edit', params: { id:this.$route.params.id }}"> Modifier</router-link>
+        <router-link class="edit":to="{ name: 'medecin-edit', params: { id:this.$route.params.id }}"> Modifier</router-link>
         </button>
 
-        <button class="delete" v-on:click="deleteMedicament">supprimer</button>
+        <button class="delete" v-on:click="deletePatient">supprimer</button>
 
         <button class="return">
-        <router-link class="return" to="/medicaments/medicament-list">Retour</router-link>
+        <router-link class="return" to="/medecins/medecin-list">Retour</router-link>
         </button>
 
         {{message}}
@@ -51,7 +50,7 @@ data() {
     }
 },
 created() {
-
+    
     this.fetchData();
 },
 
@@ -63,10 +62,10 @@ methods: {
         //console.log('test');
         //console.log(this.$route.params);
         params.append('id', this.$route.params.id);
-        //params.append('id', this.$route.params.id_medicament);
-        //params.append('id', this.item.id_medicament);
+        //params.append('id', this.$route.params.id_medecin);
+        //params.append('id', this.item.id_medecin);
         //this.$route.params.id
-        axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medicament/detail_medicament.php',params).then(response => {
+        axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/detail_medecin.php',params).then(response => {
 
             this.item = response.data.data;
             //console.log( this.item )
@@ -74,13 +73,13 @@ methods: {
         });
     },
 
-    deleteMedicament(){
+    deletePatient(){
         const params = new URLSearchParams();
                 params.append('id', this.$route.params.id);
-                params.append('prenom', this.item.prenom_medicament);
-                params.append('nom', this.item.nom_medicament);
-
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medicament/delete_medicament.php', params).then(response => {
+                params.append('prenom', this.item.prenom_medecin);
+                params.append('nom', this.item.nom_medecin);
+             
+                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/delete_medecin.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 
