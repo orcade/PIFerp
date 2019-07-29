@@ -2,7 +2,7 @@ const MedicamentDetail = {
     template: `
 <div>
 
-<h1>Détail du médecin{{$route.params.id_patient}}</h1>
+<h1>Détail du médicament{{$route.params.id_medicament}}</h1>
 
 
 <div v-if="loading" class="loading">
@@ -14,26 +14,25 @@ const MedicamentDetail = {
 </div>
 
 <p v-if="item">
-    Id Patient: {{ item.id_medecin }} <br />
-    Prenom: {{ item.prenom_medecin}} <br />
-    Nom: {{ item.nom_medecin}} <br />
-    Adresse: <br/>
-    Téléphone: 
+    Id medicament: {{ item.id_medicament }} <br />
+
+    Nom: {{ item.nom_medicament}} <br />
+
 </p>
 
 
 
-        <router-link :to="{ name: 'medecin-detail', params: { id: item.id_medecin }}"></router-link>
+        <router-link :to="{ name: 'medicament-detail', params: { id: item.id_medicament }}"></router-link>
 
 
         <button class="edit">
-        <router-link class="edit":to="{ name: 'medecin-edit', params: { id:this.$route.params.id }}"> Modifier</router-link>
+        <router-link class="edit":to="{ name: 'medicament-edit', params: { id:this.$route.params.id }}"> Modifier</router-link>
         </button>
 
-        <button class="delete" v-on:click="deletePatient">supprimer</button>
+        <button class="delete" v-on:click="deleteMedicament">supprimer</button>
 
         <button class="return">
-        <router-link class="return" to="/medecins/medecin-list">Retour</router-link>
+        <router-link class="return" to="/medicaments/medicament-list">Retour</router-link>
         </button>
 
         {{message}}
@@ -50,7 +49,7 @@ data() {
     }
 },
 created() {
-    
+
     this.fetchData();
 },
 
@@ -65,7 +64,7 @@ methods: {
         //params.append('id', this.$route.params.id_medecin);
         //params.append('id', this.item.id_medecin);
         //this.$route.params.id
-        axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/detail_medecin.php',params).then(response => {
+        axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_medicament/detail_medicament.php',params).then(response => {
 
             this.item = response.data.data;
             //console.log( this.item )
@@ -73,21 +72,21 @@ methods: {
         });
     },
 
-    deletePatient(){
+    deleteMedicament(){
         const params = new URLSearchParams();
                 params.append('id', this.$route.params.id);
-                params.append('prenom', this.item.prenom_medecin);
-                params.append('nom', this.item.nom_medecin);
-             
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/delete_medecin.php', params).then(response => {
+
+                params.append('nom', this.item.nom_medicament);
+
+                axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_medicament/delete_medicament.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 
                     //this.item = response.data.data;
                     //Console.log(response);
 
-                    if(response.data.data.error == 'false') {
-                        this.message = response.data.data_message;
+                    if(response.data.data.error == false) {
+                        this.message = 'Médicament supprimé';
                     }
                     else
                     {

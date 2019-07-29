@@ -1,6 +1,6 @@
 etapes a suivre erp medical:
 
-ajouter membres git ok 
+ajouter membres git ok
 
 producer (db) url=" " v2
 
@@ -9,7 +9,7 @@ heroes url=" " v1
 convention de nommage: snake case/var en francais!
 
 v1 affichage des patients add/edit/delete
-v2 page contact/login/ et rajout de donées DB 
+v2 page contact/login/ et rajout de donées DB
 v3export des donnés/ print/ rajout page et requête medecins et medicaments
 
 
@@ -33,10 +33,10 @@ DATA (patients){
         prenom_patient
         adresse_patient
         tel_patient
-    
+
 }
 
- v2 et rajout de donées DB 
+ v2 et rajout de donées DB
 
 <-----------------FRONT--------------------->
 
@@ -44,13 +44,13 @@ DATA (patients){
 //page list
 //page detail
 <--actions-->
-//add 
+//add
 //edit
 //delete
 
 <--html-->
-router links: patient v1 
-router links: medecin V2 
+router links: patient v1
+router links: medecin V2
 router links: medicament v3
 integration de base html du wareframe (version mobile) grille bootstraap
 verification code w3c
@@ -69,7 +69,7 @@ front ok
 
 versions simplifiée dans un premier temps V1.
 
-menu ham 
+menu ham
 
 <--css-->
 integration design final
@@ -84,7 +84,7 @@ on les obtiens en fesant un get et en affichant sur la page les id et les pseudo
 on peux y ajouter des patients.
 
 page add : on peux y ajouter des spatients. en cliquant sur ajouter de la page list nous arrivons sur la page add.
-nous envoyons un post avec data : prenom / nom ... 
+nous envoyons un post avec data : prenom / nom ...
 
 page detail : on arrive sur la page detail lorsque l'on click sur un patient de la page list
 sur la page detail nous recuperons le get et ou post de la page list on peut y ajouter le bouton supprimer ou modifier.
@@ -103,7 +103,7 @@ VENDREDI
 
 <----------attention a faire ---------------------------->
 ok fonctionne reste delai retour et chemin retour a verif
-+ message d erreur et confirmation 
++ message d erreur et confirmation
 ok fonctionne reste delai retour
 et chemin retour a verif
 + message d erreur et confirmation
@@ -130,23 +130,60 @@ verif medicament
 demander ludo serveur adresse url
 
 
-  <table>
-    <thead>
-      <tr>
-        <th v-for="patients"
-            {{ item.nom_patient }} {{ item.prenom_patient}} <!--{{ item.naissance_patient}}-->
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="patients" id="example-1">
-        <td>
-            <router-link :to="{ name: 'patient-detail', params: { id: item.id_patient }}">{{ item.nom_patient }} {{ item.prenom_patient}}</router-link>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+compenent error 404 vue js
+
+variable pour l url
 
 
 <------------url design---------------->
 https://projects.invisionapp.com/prototype/PROJET-GROUPE-cjyitjj0q006y2d01623ehug7/inspect/b5031b46https://projects.invisionapp.com/prototype/PROJET-GROUPE-cjyitjj0q006y2d01623ehug7/inspect/b5031b46
+
+
+-------------------------   Version V1 (1seule table) ---------------------------------------------
+
+   ===> Affichage et modifications de la table PATIENTS :
+
+   Table PATIENTS :
+
+    Liste  : http://api.sirius-school.be/inter2/healthspace/php/patient.php
+    Détail : http://api.sirius-school.be/inter2/healthspace/php/component_patient/detail_patient.php
+    Ajout  : http://api.sirius-school.be/inter2/healthspace/php/component_patient/insert_patient.php
+    Modif : http://api.sirius-school.be/inter2/healthspace/php/component_patient/update_patient.php
+    Suppr : http://api.sirius-school.be/inter2/healthspace/php/component_patient/delete_patient.php
+
+
+------------------------ Version V2 (suite de la DB) ---------------------------------------------
+
+===> 1) Affichage et modifications des tables MEDECINS & MEDICAMENTS :
+
+Table MEDECINS :
+
+Liste  : http://api.sirius-school.be/inter2/healthspace/php/medecin.php
+Détail : http://api.sirius-school.be/inter2/healthspace/php/component_medecin/detail_medecin.php
+Ajout  : http://api.sirius-school.be/inter2/healthspace/php/component_medecin/insert_medecin.php
+Modif : http://api.sirius-school.be/inter2/healthspace/php/component_medecin/update_medecin.php
+Suppr : http://api.sirius-school.be/inter2/healthspace/php/component_medecin/delete_medecin.php
+
+
+Table MEDICAMENTS :
+
+Liste  : http://api.sirius-school.be/inter2/healthspace/php/medicament.php
+Détail : http://api.sirius-school.be/inter2/healthspace/php/component_medicament/detail_medicament.php
+Ajout  : http://api.sirius-school.be/inter2/healthspace/php/component_medicament/insert_medicament.php
+Modif : http://api.sirius-school.be/inter2/healthspace/php/component_medicament/update_medicament.php     
+Suppr : http://api.sirius-school.be/inter2/healthspace/php/component_medicament/delete_medicament.php
+
+
+===> 2) Affichage et modifications des autres tables MEDECINS & MEDICAMENTS :
+                --- > Une requête pour chaque table intermédiaire
+
+   Liste des patients suivi par un seul et même médecin :
+        http://api.sirius-school.be/inter2/healthspace/php/component_mix/clientele.php
+
+   Liste des médicaments pris par un seul et même patient :
+        http://api.sirius-school.be/inter2/healthspace/php/component_mix/medication.php
+
+  Liste des médicaments prescrits par un seul et même médecin :
+        http://api.sirius-school.be/inter2/healthspace/php/component_mix/prescrition.php
+
+      <img class="trash" src="./img/trash.png" v-on:click="deletePatient">

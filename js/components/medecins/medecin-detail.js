@@ -17,8 +17,8 @@ const MedecinDetail = {
     Id Patient: {{ item.id_medecin }} <br />
     Prenom: {{ item.prenom_medecin}} <br />
     Nom: {{ item.nom_medecin}} <br />
-    Adresse: <br/>
-    Téléphone: 
+      Nom: {{ item.lien_photo}} <br />
+    Téléphone:
 </p>
 
 
@@ -50,7 +50,7 @@ data() {
     }
 },
 created() {
-    
+
     this.fetchData();
 },
 
@@ -65,7 +65,7 @@ methods: {
         //params.append('id', this.$route.params.id_medecin);
         //params.append('id', this.item.id_medecin);
         //this.$route.params.id
-        axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/detail_medecin.php',params).then(response => {
+        axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_medecin/detail_medecin.php ',params).then(response => {
 
             this.item = response.data.data;
             //console.log( this.item )
@@ -78,16 +78,16 @@ methods: {
                 params.append('id', this.$route.params.id);
                 params.append('prenom', this.item.prenom_medecin);
                 params.append('nom', this.item.nom_medecin);
-             
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/delete_medecin.php', params).then(response => {
+
+                axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_medecin/delete_medecin.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 
                     //this.item = response.data.data;
                     //Console.log(response);
 
-                    if(response.data.data.error == 'false') {
-                        this.message = response.data.data_message;
+                    if(response.data.data.error == false) {
+                        this.message = 'Médecin supprimé';
                     }
                     else
                     {

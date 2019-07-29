@@ -17,8 +17,8 @@ const PatientDetail = {
     Id Patient: {{ item.id_patient }} <br />
     Prenom: {{ item.prenom_patient}} <br />
     Nom: {{ item.nom_patient}} <br />
-    Adresse: <br/>
-    Téléphone: 
+    Lien ID: {{ item.lien_carteID}} <br />
+    Téléphone:
 </p>
 
 
@@ -30,7 +30,8 @@ const PatientDetail = {
         <router-link class="edit":to="{ name: 'patient-edit', params: { id:this.$route.params.id }}"> Modifier</router-link>
         </button>
 
-        <button class="delete" v-on:click="deletePatient">supprimer</button>
+        <button class="delete" v-on:click="deletePatient">Supprimer</button>
+        
 
         <button class="return">
         <router-link class="return" to="/patients/patient-list">Retour</router-link>
@@ -50,7 +51,7 @@ data() {
     }
 },
 created() {
-    
+
     this.fetchData();
 },
 
@@ -65,7 +66,7 @@ methods: {
         //params.append('id', this.$route.params.id_patient);
         //params.append('id', this.item.id_patient);
         //this.$route.params.id
-        axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
+        axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_patient/detail_patient.php ',params).then(response => {
 
             this.item = response.data.data;
             //console.log( this.item )
@@ -78,8 +79,9 @@ methods: {
                 params.append('id', this.$route.params.id);
                 params.append('prenom', this.item.prenom_patient);
                 params.append('nom', this.item.nom_patient);
-             
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/delete_patient.php', params).then(response => {
+                params.append('lien-ID', this.item.lien_carteID)
+
+                axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_patient/delete_patient.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 

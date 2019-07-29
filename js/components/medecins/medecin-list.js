@@ -19,11 +19,44 @@ const MedecinList = {
 
     <!-- on vérifie que les patients n'est pas vide, et puis on boucle avec v-for sur un tableau d'objet "item" -->
 
-    <ul v-if="medecins" id="example-1">
-        <li v-for="item in medecins">
-            <router-link :to="{ name: 'medecin-detail', params: { id: item.id_medecin }}">{{ item.nom_medecin }} {{ item.prenom_medecin}}</router-link>
-        </li>
-    </ul>
+
+
+    <table class="table">
+        <tr>
+
+            <th class="item1">Photo</th>
+            <th class="item2"> Prenom</th>
+            <th class="item1">Nom</th>
+
+            <th class="item3">n° Identification</th>
+
+        </tr>
+
+    <tbody v-if="medecins" >
+
+        <tr v-for="item in medecins">
+            <td class="num">{{ item.id_medecin}}</td>
+            <td>{{ item.nom_medecin}}</td>
+            <td>{{ item.prenom_medecin}}</td>
+            <td>{{ item.lien_photo}}</td>
+
+
+                    <td>
+                        <button class="detail">
+                            <router-link class="detail":to="{ name: 'medecin-detail', params: { id: item.id_medecin }}">Detail </router-link>
+                        </button>
+
+                        <button class="edit">
+                            <router-link class="edit":to="{ name: 'medecin-edit', params: { id: item.id_medecin  }}"> Modifier</router-link>
+                        </button>
+
+                    </td>
+        </tr>
+
+    </tbody>
+
+    </table>
+
 
   </div>
 `,
@@ -45,7 +78,7 @@ const MedecinList = {
     methods: {
 
         fetchData() {
-            axios.get('http://192.168.1.117/testphp/PIF_02/php/medecin.php').then(response => {
+            axios.get('http://api.sirius-school.be/inter2/healthspace/php/medecin.php').then(response => {
                 this.medecins= response.data.data;
                 console.log(response.data.data);
                 //alert("item.id_medecin ");

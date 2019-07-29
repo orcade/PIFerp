@@ -1,64 +1,77 @@
 
 const PatientList = {
     template: `
-    <div>
+<div>
 
-    <h1>Liste des patients</h1>
+      <img class="logo" src="./img/logo santé.svg" />
 
-    <div v-if="loading" class="loading">
-        Loading...
-    </div>
 
-    <div v-if="error" class="error">
-        {{ error }}
-    </div>
-    <div class="rectangle">
+  <div v-if="loading" class="loading">
+      Loading...
+  </div>
 
-    <button class="add"  v-on:click="sendModif">Ajouter</button>
-    <button class="search"  v-on:click="fetchData">Rechercher</button>
-<div class="form">
-    <div>
-        <label class="entree">Prénom</label>
-        <input class="champs" type="text" v-model="item.prenom_patient" />
-    </div>
+  <div v-if="error" class="error">
+      {{ error }}
+  </div>
+
+
+
+<img class="enfant" src="./img/Medecin-enfant-metier.jpg" />
+<img class="portrait" src="./img/portrait_01.png" />
+<h1 class="texte">Good morning <br> doctor Lamine</h1>
+
+<div class="rectangle">
+<div>
+    <label class="entree">Nom du patient</label>
+    <input class="champs1" type="text" v-model="item.nom_patient" />
 </div>
 
-    <div>
-        <label class="entree">Nom</label>
-        <input class="champs" type="text" v-model="item.nom_patient" />
-    </div>
+<div>
+    <label class="entree">Prénom du patient</label>
+    <input class="champs2" type="text" v-model="item.prenom_patient" />
+</div>
+    <button class="add">
+      <router-link class="add"  to="/patients/patient-add">Ajouter</router-link>
+    </button>
+</div>
 
-    </div>
-    <!-- on vérifie que les patients n'est pas vide, et puis on boucle avec v-for sur un tableau d'objet "item" -->
-
-    <table>
+<table class="table">
     <tr>
-        <th>Id Patient</th>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Adresse</th>
-        <th>Age</th>
-        <th>Actions</th>
+
+        <th class="item1">Action</th>
+        <th class="item2"> Prenom</th>
+        <th class="item1">Nom</th>
+
+        <th class="item3">n° Inscription</th>
+
     </tr>
-<tbody v-if="patients">
-    
+
+<tbody v-if="patients" >
+
     <tr v-for="item in patients">
-        <td>{{ item.id_patient}}</td>
+        <td class="num">{{ item.id_patient}}</td>
         <td>{{ item.nom_patient}}</td>
         <td>{{ item.prenom_patient}}</td>
-        <td>{{ item.adresse}}</td>
-        <td>{{ item.age}}</td>
-                  
-        
-        <td>
-   
-        </td>
-    </tr>
-    
-</tbody>
-</table>   
 
-  </div>
+
+                <td>
+                    <button class="detail">
+                        <router-link class="detail":to="{ name: 'patient-detail', params: { id: item.id_patient }}">Detail </router-link>
+                    </button>
+
+                    <button class="edit">
+                        <router-link class="edit":to="{ name: 'patient-edit', params: { id: item.id_patient  }}"> Modifier</router-link>
+                    </button>
+
+                </td>
+    </tr>
+
+</tbody>
+
+</table>
+
+
+</div>
 `,
 
     data() {
@@ -67,11 +80,11 @@ const PatientList = {
             error: null,
             loading:null,
             item:{}
+
         }
     },
     created() {
-        // fetch the data when the view is created and the data is
-        // already being observed
+
         this.fetchData();
 
     },
@@ -79,35 +92,16 @@ const PatientList = {
     methods: {
 
         fetchData() {
-            axios.get('http://192.168.1.117/testphp/PIF_02/php/patient.php').then(response => {
+               axios.get('https://api.sirius-school.be/inter2/healthspace/php/patient.php').then(response => {
                 this.patients= response.data.data;
-                //console.log(response.data.data);
+                console.log(response.data.data);
                 //alert("axiosok");
             });
         },
-        
-        sendModif() {
-            const params = new URLSearchParams();
-            params.append('prenom_patient', this.item.prenom_patient);
-            params.append('nom_patient', this.item.nom_patient);
-        
 
 
-            axios.post(' http://192.168.1.117/testphp/PIF_02/php/component_patient/insert_patient.php', params).then(response => {
-                console.log(this.item.nom_patient);
-              
 
-                this.item = response.data.data;
-                console.log(response);
+            },
 
-                if(response.data.error == 'false') {
-                    this.message = 'Patient ajouté';
-                }
-                else
-                {
-                    this.message = response.data.error_message;
-                }
-            });
-        }
-    }
+
 };

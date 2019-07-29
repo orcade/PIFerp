@@ -24,14 +24,15 @@ const MedecinEdit = {
                 <label>Nom</label>
                 <input type="text" v-model="item.nom_medecin" />
             </div>
-         
+
+
         </form>
 
         <div>
-            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le medecin</button>
+            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier</button>
 
             <button class="return">
-             <router-link class="return" to="/">Retour</router-link>
+            <router-link class="return" to="/medecins/medecin-list">Retour</router-link>
             </button>
 
         </div>
@@ -64,7 +65,7 @@ const MedecinEdit = {
                 const params = new URLSearchParams();
                 params.append('id', this.$route.params.id);
                 //this.$route.params.id
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/detail_medecin.php',params).then(response => {
+                axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_medecin/detail_medecin.php ',params).then(response => {
                     //console.log(this.item);
                     this.item = response.data.data;
                 });
@@ -74,23 +75,23 @@ const MedecinEdit = {
 
             sendModif() {
                 const params = new URLSearchParams();
-               
+
                 //params.append('id', this.$route.params.id);
                 params.append('id', this.item.id_medecin);
-                
+
                 params.append('prenom_medecin',this.item.prenom_medecin);
                 params.append('nom_medecin',this.item.nom_medecin);
-     
 
 
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_medecin/update_medecin.php', params).then(response => {
+
+                axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_medecin/update_medecin.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 
                     //this.item = response.data.data;
                     //console.log(response);
 
-                    if(response.data.error == 'false') {
+                    if(response.data.error == false) {
                         this.message = 'Médecin mis à jour';
                     }
                     else

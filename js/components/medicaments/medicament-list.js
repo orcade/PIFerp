@@ -19,11 +19,39 @@ const MedicamentList = {
 
     <!-- on vérifie que les medicaments n'est pas vide, et puis on boucle avec v-for sur un tableau d'objet "item" -->
 
-    <ul v-if="medicaments" id="example-1">
-        <li v-for="item in medicaments">
-            <router-link :to="{ name: 'medicament-detail', params: { id: item.id_medicament }}">{{ item.nom_medicament }} </router-link>
-        </li>
-    </ul>
+
+    <table class="table">
+        <tr>
+
+
+            <th class="item1">Nom</th>
+            <th class="item3">n° Identification</th>
+
+        </tr>
+
+    <tbody v-if="medicaments" >
+
+        <tr v-for="item in medicaments">
+            <td class="num">{{ item.id_medicament}}</td>
+            <td>{{ item.nom_medicament}}</td>
+
+
+                    <td>
+                        <button class="valider">
+                            <router-link class="valider":to="{ name: 'medicament-detail', params: { id: item.id_medicament }}">Detail </router-link>
+                        </button>
+
+                        <button class="return">
+                            <router-link class="return":to="{ name: 'medicament-edit', params: { id: item.id_medicament }}"> Modifier</router-link>
+                        </button>
+
+                    </td>
+        </tr>
+
+    </tbody>
+
+    </table>
+
 
   </div>
 `,
@@ -45,7 +73,7 @@ const MedicamentList = {
     methods: {
 
         fetchData() {
-            axios.get('http://192.168.1.117/testphp/PIF_02/php/medicament.php').then(response => {
+            axios.get('http://api.sirius-school.be/inter2/healthspace/php/medicament.php').then(response => {
                 this.medicaments= response.data.data;
                 console.log(response.data.data);
                 //alert("test ");

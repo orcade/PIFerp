@@ -24,11 +24,11 @@ const PatientEdit = {
                 <label>Nom</label>
                 <input type="text" v-model="item.nom_patient" />
             </div>
-         
+
         </form>
 
         <div>
-            <button class="edit" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier le client</button>
+            <button class="edit2" @click.prevent='sendModif' v-on:keyup.enter="sendModif" >Modifier</button>
 
             <button class="return">
              <router-link class="return" to="/">Retour</router-link>
@@ -64,7 +64,7 @@ const PatientEdit = {
                 const params = new URLSearchParams();
                 params.append('id', this.$route.params.id);
                 //this.$route.params.id
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/detail_patient.php',params).then(response => {
+                axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_patient/detail_patient.php ',params).then(response => {
                     //console.log(this.item);
                     this.item = response.data.data;
                 });
@@ -74,16 +74,16 @@ const PatientEdit = {
 
             sendModif() {
                 const params = new URLSearchParams();
-               
+
                 //params.append('id', this.$route.params.id);
                 params.append('id', this.item.id_patient);
-                
+
                 params.append('prenom_patient', this.item.prenom_patient);
                 params.append('nom_patient', this.item.nom_patient);
-     
 
 
-                axios.post('http://192.168.1.117/testphp/PIF_02/php/component_patient/update_patient.php', params).then(response => {
+
+                axios.post('http://api.sirius-school.be/inter2/healthspace/php/component_patient/update_patient.php', params).then(response => {
                     //console.log(response);
                     this.loading = false;
 
