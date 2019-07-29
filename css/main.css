@@ -6,7 +6,8 @@ html {
 }
 
 body{
-
+    margin:2rem;
+    margin-right: 10rem;
     background-color: white;
 
 }
@@ -28,7 +29,7 @@ body{
   height: 58px;
   display: inline-block;
   text-align: center;
-  margin-right: 120px;
+  margin-right: 8rem;
   margin-top: 1rem;
 
 }
@@ -245,7 +246,6 @@ tbody tr{
     .table{
       float: right;
       margin-left:170px;
-
 
     }
 

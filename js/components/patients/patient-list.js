@@ -1,8 +1,7 @@
-
 const PatientList = {
     template: `
 <div>
-
+<contain>
       <img class="logo" src="./img/logo santé.svg" />
 
 
@@ -20,6 +19,8 @@ const PatientList = {
 <img class="portrait" src="./img/portrait_01.png" />
 <h1 class="texte">Good morning <br> doctor Lamine</h1>
 
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-6">
 <div class="rectangle">
 <div>
     <label class="entree">Nom du patient</label>
@@ -34,7 +35,8 @@ const PatientList = {
       <router-link class="add"  to="/patients/patient-add">Ajouter</router-link>
     </button>
 </div>
-
+</div>
+<div class="col-12 col-md-6 col-lg-6">
 <table class="table">
     <tr>
 
@@ -69,8 +71,9 @@ const PatientList = {
 </tbody>
 
 </table>
-
-
+</div>
+</div>
+</contain>
 </div>
 `,
 
